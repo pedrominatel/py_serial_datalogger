@@ -3,7 +3,6 @@
 from datetime import datetime
 import serial
 import time
-import sys
 
 #Mudar port de acordo com a porta serial do gateway
 COMport = '/dev/ttyUSB0'
