@@ -19,14 +19,6 @@ serial_ob = serial.Serial(port=COMport,baudrate=COMspeed)
 time.sleep( 1 )
 serial_ob.write(b'AT+START\r')
 
-while True:  # making a loop
-    try:  # used try so that if user pressed other than the given key error will not be shown
-        if keyboard.is_pressed("q"):  # if key 'q' is pressed 
-            print('You Pressed A Key!')
-            break  # finishing the loop
-    except:
-        break  # if user pressed a key other than the given key the loop will break
-
 try:
     while True:
         
