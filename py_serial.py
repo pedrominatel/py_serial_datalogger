@@ -32,6 +32,17 @@ try:
         
         serial_log.write(str(datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f,'))
                 +str(serial_ob.readline()))
+
+        try:  # used try so that if user pressed other than the given key error will not be shown
+            if keyboard.is_pressed("q"):  # if key 'q' is pressed 
+                print('Finalizando a coleta dos dados...')
+                serial_ob.write(b'AT+STOP\r')
+                serial_ob.close()
+                serial_log.write('### FIM DA COLETA ###')
+                serial_log.close()
+                break  # finishing the loop
+        except:
+            break  # if user pressed a key other than the given key the loop will break
         
 except KeyboardInterrupt:
     print('Finalizando a coleta dos dados...')
@@ -43,4 +54,3 @@ except:
     print "?"
 finally:
     print "Closing...."
-    print "Done!"
